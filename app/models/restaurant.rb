@@ -3,12 +3,12 @@ class Restaurant < ApplicationRecord
   has_many :user_restaurants
   has_many :users , through: :user_restaurants
 
-    def self.get_restaurants_from_yelp (term)
+    def self.get_restaurants_from_yelp (term,x,y)
         url = "https://api.yelp.com/v3/businesses/search"
         params = {
           term: term,
-          latitude: 40.700862,
-          longitude: -73.987472,
+          latitude: x,
+          longitude: y,
           limit: 50,
           radius: 500
         }

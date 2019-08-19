@@ -12,7 +12,7 @@ end
 
 # sending to frontend
 def auth_response_json(user)
-    { token: make_token(user.id), user_name: user.user_name, user_id: user.id }
+    { token: make_token(user.id), user_name: user.user_name, user_id: user.id, name: user.name }
 end
 
 def tell_user_to_go_away!

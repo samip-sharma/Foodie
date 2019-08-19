@@ -3,7 +3,7 @@
 class RestaurantsController < ApplicationController
 
   def getRestaurants
-  @data=Restaurant.get_restaurants_from_yelp("lunch")
+  @data=Restaurant.get_restaurants_from_yelp(params[:term],params[:xcoo],params[:ycoo])
   render json: @data
   end
 

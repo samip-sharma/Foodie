@@ -27,13 +27,15 @@ class RestaurantsController < ApplicationController
       user_id=params[:user_id].to_i
       user=User.find(user_id)
       restaurant=user.restaurants.select {|restaurant| restaurant.real_id==params[:id]}
-        if (restaurant)
+      
+        if (restaurant[0])
           @restaurant=Restaurant.get_restaurant_detail(params[:id])
+          @restaurant["liked"]=true
         render json: @restaurant
-
         else
         @restaurant=Restaurant.get_restaurant_detail(params[:id])
-        render json: @restaurant
+        @restaurant["liked"]=false
+        render json: @restaurant, liked: false
         end
     end
 

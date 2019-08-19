@@ -3,13 +3,12 @@
 class RestaurantsController < ApplicationController
 
   def add_like
-    # byebug
     user_id=params[:user_id].to_i
     restaurant_id=params[:restaurant_id]
     user=User.find(user_id)
     desired_restaurant=user.restaurants.select{|restaurant| restaurant.real_id==restaurant_id}
       if(desired_restaurant.length!=0)
-        desired_restaurant.destroy()
+        desired_restaurant[0].destroy
       else
         new_restaurant=Restaurant.create(real_id:restaurant_id)
         user.restaurants << new_restaurant 

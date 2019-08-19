@@ -1,6 +1,6 @@
 
 class Restaurant < ApplicationRecord
-  has_many :user_restaurants
+  has_many :user_restaurants ,dependent: :destroy
   has_many :users , through: :user_restaurants
 
     def self.get_restaurants_from_yelp (term,x,y)

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :comments
+  # resources :comments
   resources :user_restaurants
   resources :follows
   resources :tokens
@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get '/getFavRestaurants/:id', to: "user_restaurants#getFavRestaurants"
   get '/following/:id', to: "follows#following"
   post '/addlike', to: "restaurants#add_like"
+  post '/getComments' , to: "comments#getComments"
+  post '/addComments' , to: "comments#addComments"
+
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

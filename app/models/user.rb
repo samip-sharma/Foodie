@@ -5,6 +5,7 @@ class User < ApplicationRecord
     has_many :followees, through: :followed_users
     has_many :user_restaurants ,dependent: :destroy
     has_many :restaurants , through: :user_restaurants
+    has_many :comments
 
     has_secure_password
     validates_presence_of :user_name

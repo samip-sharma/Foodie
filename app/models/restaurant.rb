@@ -2,6 +2,7 @@
 class Restaurant < ApplicationRecord
   has_many :user_restaurants ,dependent: :destroy
   has_many :users , through: :user_restaurants
+  has_many :comments
 
     def self.get_restaurants_from_yelp (term,x,y)
         url = "https://api.yelp.com/v3/businesses/search"

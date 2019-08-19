@@ -8,7 +8,7 @@ class RestaurantsController < ApplicationController
     user=User.find(user_id)
     desired_restaurant=user.restaurants.select{|restaurant| restaurant.real_id==restaurant_id}
       if(desired_restaurant.length!=0)
-        desired_restaurant[0].destroy
+        user.user_restaurants.find_by(restaurant_id:desired_restaurant[0].id).destroy
       else
         new_restaurant=Restaurant.create(real_id:restaurant_id)
         user.restaurants << new_restaurant 

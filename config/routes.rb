@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :user_restaurants
   resources :follows
   resources :tokens
-  resources :users
+  # resources :users
+  get '/users/:id/:clickedUser', to: "users#show"
   post '/getRestaurant/:term', to: "restaurants#getRestaurants"
   post '/getRestaurantDetail/:id', to: "restaurants#getRestaurantDetail"
   get '/getFavRestaurants/:id', to: "user_restaurants#getFavRestaurants"

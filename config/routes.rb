@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post '/getComments' , to: "comments#getComments"
   post '/addComments' , to: "comments#addComments"
   get '/restaurants/:restaurant_id/users' , to: 'restaurants#restaurantUser'
+  get'/users/:follower/addFriend/:following' , to: 'users#addFriend'
 
 
 

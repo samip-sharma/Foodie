@@ -5,6 +5,13 @@ class UsersController < ApplicationController
         render json: users     
     end
 
+    def addFriend
+        user1=User.find(params[:follower])
+        user2=User.find(params[:following])
+        user2.followers<< user1
+        render json: {added:true}
+    end
+
     def create
         user = User.create(user_params)
         if user.valid?

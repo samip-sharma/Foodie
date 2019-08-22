@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post '/addlike', to: "restaurants#add_like"
   post '/getComments' , to: "comments#getComments"
   post '/addComments' , to: "comments#addComments"
+  delete '/deleteComment/:id' , to:"comments#deleteComment"
   get '/restaurants/:restaurant_id/users' , to: 'restaurants#restaurantUser'
   get '/users/:follower/addFriend/:following' , to: 'users#addFriend'
   delete '/users/:follower/deleteFriend/:following' , to: 'users#deleteFriend'

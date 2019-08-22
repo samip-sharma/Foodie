@@ -22,4 +22,10 @@ class CommentsController < ApplicationController
          comment=Comment.create(context:params[:context],user_id:user_id,restaurant_id:restaurant.id)
         render json: comment
     end
+
+    def deleteComment
+        @comment = Comment.find(params[:id])
+        @comment.destroy
+    end
+
 end

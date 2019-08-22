@@ -16,6 +16,5 @@ Rails.application.routes.draw do
   get '/restaurants/:restaurant_id/users' , to: 'restaurants#restaurantUser'
   get '/users/:follower/addFriend/:following' , to: 'users#addFriend'
   delete '/users/:follower/deleteFriend/:following' , to: 'users#deleteFriend'
-  get  ''
 
 end

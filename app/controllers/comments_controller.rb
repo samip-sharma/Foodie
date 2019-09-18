@@ -11,7 +11,6 @@ class CommentsController < ApplicationController
     end
 
     def addComments
-        # byebug
         user_id=params[:user_id].to_i
         restaurant_id=params[:restaurant_id]
         user=User.find(user_id)

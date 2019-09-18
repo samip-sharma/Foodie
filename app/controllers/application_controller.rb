@@ -10,7 +10,6 @@ def authenticated?
 end
 
 
-# sending to frontend
 def auth_response_json(user)
     { token: make_token(user.id), user_name: user.user_name, user_id: user.id, name: user.name }
 end
@@ -25,8 +24,6 @@ def make_token(user_id)
     JWT.encode({ user_id: user_id }, "asdfhasdkjhfjkasdfjkhbas", 'HS256')
 end
 
-# ENV["JWT_SECRET_KEY"]
-
 def decode_token(token_string)
     JWT.decode(token_string, "asdfhasdkjhfjkasdfjkhbas", true, { algorithm: 'HS256' })
 end
@@ -39,7 +36,7 @@ def try_get_jwt_token
     rescue JWT::VerificationError
         return nil
     end
-    return decoded_token.first # gets the payload out of the dumb array that JWT returns
+    return decoded_token.first 
     else
     nil
     end

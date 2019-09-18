@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  # resources :comments
   resources :user_restaurants
   resources :follows
   resources :tokens

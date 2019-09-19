@@ -13,14 +13,14 @@ class Restaurant < ApplicationRecord
         limit: 50,
         radius: 500
       }
-      response = HTTP.auth(ENV["SECRET_YELP_KEY"]).get(url, params: params)
+      response = HTTP.auth('Bearer ' + ENV["SECRET_YELP_KEY"]).get(url, params: params)
       return response.parse
   end
 
 
   def self.get_restaurant_detail(id)
     url= "https://api.yelp.com/v3/businesses/#{id}"
-    response = HTTP.auth(ENV["SECRET_YELP_KEY"]).get(url)
+    response = HTTP.auth('Bearer ' + ENV["SECRET_YELP_KEY"]).get(url)
     return response.parse
   end
 

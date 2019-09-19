@@ -5,8 +5,12 @@ class CommentsController < ApplicationController
         restaurant_id=params[:restaurant_id]
         user=User.find(user_id)
         restaurant=Restaurant.find_by(real_id:restaurant_id)
-        
+        if restaurant
         render json: restaurant.comments
+        else 
+            render json: {error:"not favorite yet"}
+        end 
+
 
     end
 

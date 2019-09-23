@@ -32,7 +32,7 @@ class UsersController < ApplicationController
         user_id = params[:id]
         if authorized?(user_id) 
             user = User.find(params[:clickedUser])
-        render json: user, include: [:restaurants]
+        render json: user
         else
             tell_user_to_go_away! 
         end
